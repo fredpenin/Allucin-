@@ -3,26 +3,22 @@ import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { MoviesCpComponent } from './components/movies-cp/movies-cp.component';
-import { HoverDirective } from './directives/hover.directive';
-import { RatePipe } from './pipes/rate.pipe';
-import { MovieSingleComponent } from './components/movie-single/movie-single.component';
+import { HomeComponent } from './components/home/home.component';
+
+import { MoviesModule } from './modules/movies.module';
+import { UsersModule } from './modules/users.module';
 
 const routes: Routes = [
-  {path: 'movies', component: MoviesCpComponent}, 
-  {path: 'movies/:id', component: MovieSingleComponent}
+  {path: '', component: HomeComponent}, 
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    MoviesCpComponent,
-    HoverDirective,
-    RatePipe,
-    MovieSingleComponent,
+    HomeComponent,
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(routes),
+    BrowserModule, RouterModule.forRoot(routes), MoviesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

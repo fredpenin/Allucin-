@@ -1,24 +1,9 @@
 <h2> Détail du film </h2>
 
-<table>
-    <thead>
-        <tr>
-            <td>Affiche</td>
-            <td>Tittre</td>
-            <td>Réalisateur</td>
-            <td>Affiche</td>
-            <td>Date de sortie</td>
-            <td>Note</td>
-        </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td style="border:1px solid black"> {{ movie.id }} </td>
-        <td style="border:1px solid black" (click)='showTitle(movie.title)'> {{ movie.title }} </td>
-        <td style="border:1px solid black"> {{ movie.real }} </td>
-        <td style="border:1px solid black"> <img [src]="movie.cover"> </td>
-        <td style="border:1px solid black"> {{ movie.releasedAt | date: 'dd/MM/yyyy' }} </td>
-        <td style="border:1px solid black" [innerHtml]="movie.note | rate"></td>
-    </tr>
-    </tbody>
-</table>
+
+<p>Tittre :  {{ movie.title }} </p>
+<p>Réalisateur : {{ movie.real }}</p>
+<p>Date de sortie : {{ movie.releasedAt | date: 'dd/MM/yyyy' }}</p>
+<p>Note :  {{ movie.note }}</p>
+<p>Affiche : <img [src]="movie.cover"></p>
+
