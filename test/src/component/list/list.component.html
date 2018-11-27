@@ -1,0 +1,28 @@
+<h2>Liste de film</h2>
+
+<p *ngIf="movies.length == 0; else dataMovie">Aucun film disponible</p>
+
+<ng-template #dataMovie>
+    <p>Il y a {{ movies.length }} films disponible</p>
+
+    <table>
+        <thead>
+            <tr>
+                <td>Affiche</td>
+                <td>Tittre</td>
+                <td>Réalisateur</td>
+                <td>Date de sortie</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let movie of movies" hover routerLink="/movie/{{ movie.id }}">
+                <td><img [src]="movie.poster" /></td>
+                <td (click)='showTitle(movie.title)'>{{ movie.title }}</td>
+                <td>{{ movie.director }}</td>
+                <td>{{ movie.releaseDate | date:"dd/MM/yyyy" }}</td>
+                <td [innerHtml]="movie.rate | rate"></td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>

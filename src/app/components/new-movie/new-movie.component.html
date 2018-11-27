@@ -1,0 +1,20 @@
+<h2>Ajouer un film</h2>
+
+<form #newmovie="ngForm" (ngSubmit)="save_new_movie()">
+
+  <input type="text" [(ngModel)]="newmovie.title" name="title" placeholder="Titre" required>
+
+  <input type="text" [(ngModel)]="newmovie.real" name="real" placeholder="Réalisateur" required>
+
+  <input type="text" [(ngModel)]="newmovie.cover" name="cover" placeholder="Affiche" required>
+
+  <input type="text" [(ngModel)]="newmovie.releasedAt" name="releasedAt" placeholder="Date de sortie" required>
+
+  <select [(ngModel)]="newmovie.note" name="note">
+    <option *ngFor="let note of notes" [value]="note">{{ note }}</option>
+  </select>
+
+  <button type="submit">Enregistrer</button>
+
+</form>
+
